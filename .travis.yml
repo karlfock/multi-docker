@@ -22,14 +22,8 @@ after_success:
   - docker push karlfock/multi-server
   - docker push karlfock/multi-worker
 
-#   access_key_id: $AWS_ACCESS_KEY
-# secret_access_key: $AWS_SECRET_KEY
-
-# deploy:
-#   edge: true
-#   provider: elasticbeanstalk
-
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: "us-east-2"
   app: multi-docker
@@ -39,5 +33,4 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_KEY
+  secret_access_key: $AWS_SECRET_KEY
